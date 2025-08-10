@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Zigi-Zagi — Натуральные лимонады</title>
+  <meta name="description" content="Zigi-Zagi — натуральные лимонады с уникальными вкусами. Без сахара и консервантов." />
+  <meta name="keywords" content="лимонад, натуральный, без сахара, Zigi-Zagi, напитки, вкус" />
+  <meta name="author" content="Zigi-Zagi" />
+
+  <!-- OpenGraph -->
+  <meta property="og:title" content="Zigi-Zagi — Натуральные лимонады" />
+  <meta property="og:description" content="Попробуйте натуральные лимонады Zigi-Zagi — яркие вкусы и качество." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://zigi-zagi.kz" />
+  <meta property="og:image" content="images/og-image.webp" />
+
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="manifest" href="manifest.json" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet" />
+
+  <!-- Leaflet CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    crossorigin="anonymous"
+  />
+
+  <!-- Основные стили -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- SEO и PWA -->
+  <meta name="theme-color" content="#fcee09" />
+</head>
+<body>
+  <header>
+    <div class="container header-container">
+      <a href="/" class="logo" aria-label="Zigi-Zagi">Zigi-Zagi</a>
+
+      <nav role="navigation" aria-label="Главное меню">
+        <ul class="nav-list">
+          <li><a href="#about">О продукте</a></li>
+          <li><a href="#catalog">Каталог</a></li>
+          <li><a href="#reviews">Отзывы</a></li>
+          <li><a href="#contacts">Контакты</a></li>
+        </ul>
+      </nav>
+
+      <button id="theme-toggle" aria-label="Переключить тему">🌙</button>
+
+      <button id="menu-toggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu">
+        ☰
+      </button>
+    </div>
+
+    <nav id="mobile-menu" class="mobile-menu" hidden>
+      <ul>
+        <li><a href="#about" onclick="closeMenu()">О продукте</a></li>
+        <li><a href="#catalog" onclick="closeMenu()">Каталог</a></li>
+        <li><a href="#reviews" onclick="closeMenu()">Отзывы</a></li>
+        <li><a href="#contacts" onclick="closeMenu()">Контакты</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" aria-label="Главный блок">
+      <div class="hero-text">
+        <h1>Натуральные лимонады Zigi-Zagi</h1>
+        <p>Без сахара, только свежие ингредиенты и насыщенный вкус.</p>
+        <a href="#catalog" class="btn primary">Попробовать</a>
+      </div>
+      <div class="hero-video">
+        <video autoplay muted loop playsinline aria-label="Презентация продукта">
+          <source src="video/promo.mp4" type="video/mp4" />
+          Ваш браузер не поддерживает видео.
+        </video>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section" aria-labelledby="about-title">
+      <h2 id="about-title">О продукте</h2>
+      <p>
+        Лимонады Zigi-Zagi — это сочетание натуральных ягод, фруктов и трав без добавления сахара и консервантов.
+        Мы заботимся о вашем здоровье и вкусе!
+      </p>
+    </section>
+
+    <!-- Catalog Section -->
+    <section id="catalog" class="section" aria-labelledby="catalog-title">
+      <h2 id="catalog-title">Каталог вкусов</h2>
+      <div class="catalog-grid" role="list">
+        <article class="catalog-item" role="listitem" tabindex="0">
+          <h3>Клубника-Мохито</h3>
+          <img
+            src="images/strawberry-mojito.webp"
+            alt="Лимонад Клубника-Мохито"
+            loading="lazy"
+            width="320"
+            height="180"
+          />
+          <p>Свежая клубника с мятой, освежающий вкус лета.</p>
+          <button class="btn secondary" aria-haspopup="dialog" onclick="openModal('Клубника-Мохито', 'Свежая клубника и мята. Без сахара.')">
+            Подробнее
+          </button>
+        </article>
+
+        <article class="catalog-item" role="listitem" tabindex="0">
+          <h3>Тархун</h3>
+          <img
+            src="images/tarragon.webp"
+            alt="Лимонад Тархун"
+            loading="lazy"
+            width="320"
+            height="180"
+          />
+          <p>Классический ароматный тархун без добавок.</p>
+          <button class="btn secondary" aria-haspopup="dialog" onclick="openModal('Тархун', 'Яркий травяной вкус классического лимонада.')">
+            Подробнее
+          </button>
+        </article>
+
+        <article class="catalog-item" role="listitem" tabindex="0">
+          <h3>Груша</h3>
+          <img
+            src="images/pear.webp"
+            alt="Лимонад Груша"
+            loading="lazy"
+            width="320"
+            height="180"
+          />
+          <p>Нежный и сочный вкус груши без сахара.</p>
+          <button class="btn secondary" aria-haspopup="dialog" onclick="openModal('Груша', 'Натуральный вкус спелой груши.')">
+            Подробнее
+          </button>
+        </article>
+      </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="section" aria-labelledby="reviews-title">
+      <h2 id="reviews-title">Отзывы клиентов</h2>
+      <div class="reviews-list" role="list">
+        <figure class="review-item" role="listitem" tabindex="0">
+          <img src="reviews/rev1.webp" alt="Алена с лимонадом" loading="lazy" width="260" height="160" />
+          <figcaption>«Вкусно и натурально!» — Алена</figcaption>
+        </figure>
+
+        <figure class="review-item" role="listitem" tabindex="0">
+          <img src="reviews/rev2.webp" alt="Иван с лимонадом" loading="lazy" width="260" height="160" />
+          <figcaption>«Люблю Zigi-Zagi!» — Иван</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Map Section -->
+    <section id="locations" class="section" aria-labelledby="locations-title">
+      <h2 id="locations-title">Где купить</h2>
+      <div id="map" role="application" aria-label="Карта точек продаж"></div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacts" class="section" aria-labelledby="contacts-title">
+      <h2 id="contacts-title">Связаться с нами</h2>
+      <form id="contact-form" action="https://formspree.io/f/your-form-id" method="POST" aria-describedby="form-feedback">
+        <label for="name">Имя</label>
+        <input type="text" id="name" name="name" required autocomplete="name" />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="_replyto" required autocomplete="email" />
+
+        <label for="message">Сообщение</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <!-- Honeypot поле от спама -->
+        <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off" />
+
+        <button type="submit" class="btn primary">Отправить</button>
+        <p id="form-feedback" role="alert" aria-live="polite" class="form-feedback"></p>
+      </form>
+
+      <div class="social-share">
+        <button aria-label="Поделиться в Facebook" onclick="share('facebook')">FB</button>
+        <button aria-label="Поделиться ВКонтакте" onclick="share('vk')">VK</button>
+        <button aria-label="Поделиться в Telegram" onclick="share('telegram')">TG</button>
+        <button aria-label="Поделиться в WhatsApp" onclick="share('whatsapp')">WA</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> Zigi-Zagi — Все права защищены.</p>
+  </footer>
+
+  <!-- Модальное окно -->
+  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Закрыть" onclick="closeModal()">✕</button>
+      <h3 id="modal-title"></h3>
+      <p id="modal-body"></p>
+    </div>
+  </div>
+
+  <!-- Leaflet JS -->
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    crossorigin="anonymous"
+  ></script>
+
+  <!-- Основные скрипты -->
+  <script src="scripts.js"></script>
+
+  <!-- Регистрация сервис-воркера для PWA -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker
+        .register('sw.js')
+        .then(() => console.log('Service Worker зарегистрирован'))
+        .catch((error) => console.warn('Ошибка регистрации Service Worker:', error));
+    }
+  </script>
+</body>
+</html>
